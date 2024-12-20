@@ -10,9 +10,12 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
+    "jquery": "^3.7.1",
+    "jquery-scrollify": "^1.0.21",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
+    "rss-parser": "^3.13.0",
     "sass": "^1.82.0"
   }
 }
