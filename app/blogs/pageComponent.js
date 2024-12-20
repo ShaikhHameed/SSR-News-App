@@ -5,6 +5,7 @@ import BlogCard from './component/blogcard';
 import $ from 'jquery';
 import 'jquery-scrollify';
 import Parser from 'rss-parser';
+import dynamic from 'next/dynamic';
 
 export default function BlogPage(){
     
