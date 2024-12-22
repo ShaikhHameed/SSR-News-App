@@ -19,7 +19,7 @@ export default function BlogPage() {
 
             try {
                 const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(
-                    'https://feeds.feedburner.com/ndtvnews-people'
+                    'https://feeds.feedburner.com/ndtvnews-latest'
                 )}`;
                 const response = await fetch(proxyUrl);
                 const data = await response.json();
