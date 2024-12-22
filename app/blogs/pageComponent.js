@@ -5,9 +5,11 @@ import BlogCard from './component/blogcard';
 import $ from 'jquery';
 import 'jquery-scrollify';
 import Parser from 'rss-parser';
+import ShimmerNews from './shimmer';
 
 export default function BlogPage() {
     const [blogs, setBlogs] = useState([]);
+    const [loading,setLoading] = useState(true)
     const [provider,setProvider] = useState(null);
     useEffect(() => {
         const fetchRSS = async () => {
@@ -19,7 +21,7 @@ export default function BlogPage() {
 
             try {
                 const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(
-                    'https://feeds.feedburner.com/ndtvnews-latest'
+                    'https://timesofindia.indiatimes.com/rssfeedstopstories.cms'
                 )}`;
                 const response = await fetch(proxyUrl);
                 const data = await response.json();
@@ -41,6 +43,7 @@ export default function BlogPage() {
                 });
 
                 setBlogs(items);
+                setLoading(false);
             } catch (err) {
                 console.error('Error fetching RSS feed:', err);
             }
@@ -65,6 +68,9 @@ export default function BlogPage() {
     }, [blogs]);
 
     return (
+        <>
+        {loading?
+        <ShimmerNews/>:
         <div className="container">
             <div className="mx-auto" style={{ width: '100%', maxWidth: '550px' }}>
                 {blogs.map((blog, index) => (
@@ -80,5 +86,7 @@ export default function BlogPage() {
                 ))}
             </div>
         </div>
+        }
+        </>
     );
 }
