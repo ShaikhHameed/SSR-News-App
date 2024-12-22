@@ -21,7 +21,7 @@ export default function BlogPage() {
 
             try {
                 const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(
-                    'https://timesofindia.indiatimes.com/rssfeedstopstories.cms'
+                    'https://feeds.feedburner.com/ndtvnews-latest'
                 )}`;
                 const response = await fetch(proxyUrl);
                 const data = await response.json();
