@@ -19,7 +19,7 @@ export default function ShimmerNews(){
             <span className="placeholder col-6"></span>
             <span className="placeholder col-8"></span>
             </p>
-            <a href="#" tabindex="-1" className="btn btn-secondary disabled placeholder col-6"></a>
+            <a href="#" className="btn btn-secondary disabled placeholder col-6"></a>
         </div>
         </div>
         </div>
