@@ -7,8 +7,8 @@ export default function Home() {
       <img src="https://thumbs.dreamstime.com/b/d-render-realistic-illustration-iphone-mockup-transparent-background-329668045.jpg" style={{maxWidth:'750px'}} className="w-100 d-block mx-auto rounded-4" />
     <h4 className="fw-normal h2 text-center">Changing the way you consume News.</h4>
       
-      <h3 className="fw-light text-center h2 my-3">We are not <span className="fw-bold">Bhadve</span></h3>
-      <h3 className="fw-light text-center h2 my-3">We are not <span className="fw-bold">Dalal</span></h3>
+      <h3 className="fw-light text-center h2 my-3">We are <span className="fw-bold">Peak</span></h3>
+      <h3 className="fw-light text-center h2 my-3">We are <span className="fw-bold">Short</span></h3>
       <h3 className="fw-light text-center h1 my-3">We are <span className="fw-bold">PeekShorts</span></h3>
 
       <div className="masonry-section mt-5">
