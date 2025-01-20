@@ -49,7 +49,7 @@ export default function BlogPage() {
                 section: '.news-cartd-section',
                 sectionName: 'news-cartd-section',
                 easing: 'easeOutExpo',
-                scrollSpeed: 50,
+                scrollSpeed: 100,
                 setHeights: true,
                 overflowScroll: true,
                 updateHash: false,
