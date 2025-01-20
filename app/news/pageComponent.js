@@ -56,6 +56,10 @@ export default function BlogPage() {
                 touchScroll: true,
             });
         }
+
+        return()=>{
+            $.scrollify.destroy();
+        }
     }, [blogs]);
 
     useEffect(() => {

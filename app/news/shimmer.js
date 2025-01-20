@@ -2,10 +2,10 @@
 export default function ShimmerNews(){
     return(
     <>
-    <div className="container">
+    <div className="container" style={{marginTop:'10vh'}}>
     <div className="mx-auto" style={{ width: '100%', maxWidth: '550px' }}>
 
-        <div className="card mt-5" aria-hidden="true" style={{minHeight:'80vh'}}>
+        <div className="card" aria-hidden="true" style={{minHeight:'80vh'}}>
         <div className="card-img-top w-100 bg-secondary" style={{height:"250px"}}></div>
 
         <div className="card-body">
