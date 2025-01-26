@@ -52,6 +52,10 @@ body {
     height: 80%;
     border-radius: 24px;
     padding: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1.5rem;
+    justify-content: space-between;
 }
 
 .news-card-img{
@@ -72,10 +76,6 @@ body {
 
 .news-card-body{
   padding: 1rem;
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .masonry-section{
@@ -89,6 +89,41 @@ body {
   width: 100%;
   break-inside: avoid;
   background: #ededed;
+}
+
+.shimmer-card{
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  border-radius: 1rem;
+  background-color: #f1f1f1;
+  border: 1px solid #d1d1d1;
+  overflow: hidden;
+}
+
+.shimmer-card::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -80%;
+    right: 0;
+    margin: auto;
+    width: 300%;
+    height: 60%;
+    background-color: #e1e1e1;
+    transform-origin: left;
+    filter: blur(15px);
+    transform: rotate(-15deg) translateY(-100%);
+    animation: shimmer 1s ease infinite;
+}
+
+@keyframes shimmer {
+    0%{
+      transform:rotate(-30deg) translateY(-100%);
+    }
+    100%{
+      transform:rotate(-30deg) translateY(250%);
+    }
 }
 
 

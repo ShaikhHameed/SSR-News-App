@@ -5,25 +5,10 @@ export default function ShimmerNews(){
     <div className="container" style={{marginTop:'10vh'}}>
     <div className="mx-auto" style={{ width: '100%', maxWidth: '550px' }}>
 
-        <div className="card" aria-hidden="true" style={{minHeight:'80vh'}}>
-        <div className="card-img-top w-100 bg-secondary" style={{height:"250px"}}></div>
-
-        <div className="card-body">
-            <h5 className="card-title placeholder-glow">
-            <span className="placeholder col-6"></span>
-            </h5>
-            <p className="card-text placeholder-glow">
-            <span className="placeholder col-7"></span>
-            <span className="placeholder col-4"></span>
-            <span className="placeholder col-4"></span>
-            <span className="placeholder col-6"></span>
-            <span className="placeholder col-8"></span>
-            </p>
-            <a href="#" className="btn btn-secondary disabled placeholder col-6"></a>
+        <div className="shimmer-card" aria-hidden="true" style={{minHeight:'80vh'}}>
         </div>
-        </div>
-        </div>
-        </div>
+    </div>
+    </div>
     </>
     );
 }
