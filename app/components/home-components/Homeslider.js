@@ -20,7 +20,7 @@ export default function HomeSlider(){
     },[])
 
     return(
-        <>      
+        <>      <h2 className='fs-1 text-center fw-semibold  position-relative' style={{marginBottom:'-20px',zIndex:'50'}}>Featured Stories</h2>
                 <div className='home-slider-box'>
                     <div className='home-slider-overlay'>
                         <img className='w-100' src='/images/misc/bottom.png' />

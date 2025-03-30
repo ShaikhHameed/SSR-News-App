@@ -28,6 +28,14 @@ body {
   background-color: var(--theme-color) !important;
 }
 
+
+.bg-img{
+  background-size: cover;
+  background-position: center;
+}
+
+
+
 .navbar-fixed{
   position: fixed;
   width: 100%;
@@ -75,6 +83,18 @@ body {
   font-size: 1.2rem;
 }
 
+.category-home-box{
+  height: 100px;
+  width: 100px;
+  border-radius: 200px;
+  background: #1E1E1E;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
 
 .news-cartd-section{
   height: 100vh;
