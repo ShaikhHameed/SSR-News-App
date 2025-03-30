@@ -31,32 +31,16 @@ export default function HomeSlider(){
                 <div className="splide">
                 <div className="splide__track">
                     <div className="splide__list">
-
+                    
                         <div className='splide__slide'> 
                         <article className=" news-home-box" style={{ background: 'linear-gradient(to bottom,#00000063,#00000063), url(https://wallpapers.com/images/featured/american-flag-f4iyiwmqk6cuqimy.jpg)' }}>
-                            <div className="news-box">
+                            <div className="news-box position-relative">
+                            <div className='news-box-label'><span>Currently Trending</span></div>    
                             <h3>Donald Trump's shrill narrative costs US Canadian tourism dollars; travel bookings plummet</h3>
                             </div>
                         </article>
-                        </div>   
+                        </div>    
                        
-                        <div className='splide__slide'> 
-                        <article className=" news-home-box" style={{ background: 'linear-gradient(to bottom,#00000063,#00000063), url(https://wallpapers.com/images/featured/american-flag-f4iyiwmqk6cuqimy.jpg)' }}>
-                            <div className="news-box">
-                            <h3>Donald Trump's shrill narrative costs US Canadian tourism dollars; travel bookings plummet</h3>
-                            </div>
-                        </article>
-                        </div>   
-                       
-                        <div className='splide__slide'> 
-                        <article className=" news-home-box" style={{ background: 'linear-gradient(to bottom,#00000063,#00000063), url(https://wallpapers.com/images/featured/american-flag-f4iyiwmqk6cuqimy.jpg)' }}>
-                            <div className="news-box">
-                            <h3>Donald Trump's shrill narrative costs US Canadian tourism dollars; travel bookings plummet</h3>
-                            </div>
-                        </article>
-                        </div>   
-                       
-
                     </div>
                 </div>
                 </div>

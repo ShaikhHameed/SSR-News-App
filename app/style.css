@@ -83,6 +83,24 @@ body {
   font-size: 1.2rem;
 }
 
+.news-box-label{
+  position: absolute;
+  right: 0;
+  top:-24px;
+  background: red;
+  color: white;
+  width: 75%;
+  padding: 2px 14px;
+  text-align: center;
+  transform: skewX(-37deg) translateX(18px);
+}
+
+.news-box-label span{
+  display: block;
+  transform: skewX(37deg);
+}
+  
+
 .category-home-box{
   height: 100px;
   width: 100px;
