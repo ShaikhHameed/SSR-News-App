@@ -1,4 +1,5 @@
 import CategorySlider from "./home-components/CategorySlider";
+import HomeFeaturesSection from "./home-components/homeFeaturesSesction";
 import HomeSlider from "./home-components/Homeslider";
 
 
@@ -37,16 +38,11 @@ export default function HomePage() {
         <div className="container">
           <h4 className=" fs-1">Here’s How <span className="text-theme">Peekshorts</span> Makes a Difference!</h4>
           <p className="small">Breaking News, Simplified! Peekshorts keeps you updated in seconds—no fluff, just facts.</p>
-          <iframe width="100%" style={{ aspectRatio: '16/8' }} src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=tlebo_1gRumSt0hp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe width="100%" style={{ aspectRatio: '16/8', borderRadius:'1rem' }} src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=tlebo_1gRumSt0hp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
       </div>
 
-      <div className=" py-5 text-center">
-        <div className="container">
-          <h4 className=" fs-1">See Everything in Action – News at Lightning Speed!</h4>
-          <img style={{ width: 'auto', height: '70vh' }} className="d-block mx-auto mt-5" src={'/images/home/peakshorts-Mobile.png'} />
-        </div>
-      </div>
+      <HomeFeaturesSection/>
 
       <div className="py-5 bg-img" style={{ background: "linear-gradient(to left, rgb(0 0 0 / 53%), rgb(0 0 0 / 54%)), url(/images/home/footer-bg.png)" }}>
         <div className="container text-center text-white">

@@ -64,7 +64,7 @@ body {
 
 
 .news-home-box{
-  aspect-ratio: 12/12;
+  aspect-ratio: 16/10;
   width: 100%;
   position: relative;
   display: flex;
@@ -74,30 +74,43 @@ body {
   background-size: cover !important;
   background-position: center !important;
   color: white;
+  border-radius: 1rem;
 }
 
 .news-home-box .news-box{
   padding: 1.2rem
 }
 .news-home-box .news-box h3{
-  font-size: 1.2rem;
+  font-size: 1.7rem;
 }
 
 .news-box-label{
-  position: absolute;
-  right: 0;
-  top:-24px;
+  display: inline-block;
   background: red;
   color: white;
-  width: 75%;
-  padding: 2px 14px;
+  padding: 2px 18px;
   text-align: center;
-  transform: skewX(-37deg) translateX(18px);
+  border-radius: 2rem;
+  margin-bottom: 0.8rem;
 }
 
-.news-box-label span{
-  display: block;
-  transform: skewX(37deg);
+.category-flex{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+.category-btn-item{
+  padding: 0.5rem 2rem;
+  background: #000;
+  border-radius: .8rem;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
   
 
@@ -112,6 +125,13 @@ body {
   align-items: center;
   justify-content: center;
   margin: auto;
+}
+
+.feature-box{
+  width: 100%;
+  aspect-ratio: 4/4;
+  background: grey;
+  border-radius: 1rem;
 }
 
 .news-cartd-section{

@@ -20,23 +20,18 @@ export default function HomeSlider(){
     },[])
 
     return(
-        <>      <h2 className='fs-1 text-center fw-semibold  position-relative' style={{marginBottom:'-20px',zIndex:'50'}}>Featured Stories</h2>
+        <>      <h2 className='fs-1 text-center fw-semibold  position-relative'>Featured Stories</h2>
                 <div className='home-slider-box'>
-                    <div className='home-slider-overlay'>
-                        <img className='w-100' src='/images/misc/bottom.png' />
-                    </div>
-                    <div className='home-slider-overlay'>
-                        <img className='w-100' src='/images/misc/top.png' />
-                    </div>
                 <div className="splide">
                 <div className="splide__track">
                     <div className="splide__list">
                     
-                        <div className='splide__slide'> 
+                        <div className='splide__slide' style={{padding:'6px'}}> 
                         <article className=" news-home-box" style={{ background: 'linear-gradient(to bottom,#00000063,#00000063), url(https://wallpapers.com/images/featured/american-flag-f4iyiwmqk6cuqimy.jpg)' }}>
                             <div className="news-box position-relative">
                             <div className='news-box-label'><span>Currently Trending</span></div>    
                             <h3>Donald Trump's shrill narrative costs US Canadian tourism dollars; travel bookings plummet</h3>
+                            <h6 style={{opacity:'0.8'}}>Source: NewYork Times</h6>
                             </div>
                         </article>
                         </div>    

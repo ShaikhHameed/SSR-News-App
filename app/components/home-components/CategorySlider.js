@@ -7,46 +7,19 @@ import { RiMoneyDollarCircleLine, RiMovie2Fill } from "react-icons/ri";
 export default function CategorySlider() {
     return (
         <>
-            <div className="container py-5">
+            <div className="container py-5 my-5">
                 <h1 className="text-center mb-4">Browse by Category</h1>
-                <div className="d-flex flex-wrap justify-content-center" style={{ gap: '1.8rem' }}>
-
-                    <div>
-                        <div className="category-home-box">
-                            <FaEarthAmericas size={'50px'} />
-                        </div>
-                        <h4 className="fs-5 text-center mt-2">Global</h4>
-                    </div>
-
-                    <div>
-                        <div className="category-home-box">
-                            <FaHouseFlag size={'50px'} />
-                        </div>
-                        <h4 className="fs-5 text-center mt-2">Politics</h4>
-                    </div>
-
-                    <div>
-                        <div className="category-home-box">
-                            <RiMoneyDollarCircleLine size={'50px'} />
-                        </div>
-                        <h4 className="fs-5 text-center mt-2">Economic</h4>
-                    </div>
-
-                    <div>
-                        <div className="category-home-box">
-                            <RiMovie2Fill size={'50px'} />
-                        </div>
-                        <h4 className="fs-5 text-center mt-2">Entertainment</h4>
-                    </div>
-
-                    <div>
-                        <div className="category-home-box">
-                            <GiMaterialsScience size={'50px'} />
-                        </div>
-                        <h4 className="fs-5 text-center mt-2">Science</h4>
-                    </div>
-
+                
+                <div className="category-flex"  >
+                    <div className="category-btn-item">Politics</div>
+                    <div className="category-btn-item">International</div>
+                    <div className="category-btn-item">Environmental</div>
+                    <div className="category-btn-item">Science</div>
+                    <div className="category-btn-item">Entertainment</div>
+                    <div className="category-btn-item">Economy</div>
+                    <div className="category-btn-item">Lifestyle</div>
                 </div>
+
             </div>
         </>
     )
