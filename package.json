@@ -9,8 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mui/material": "^7.0.1",
-    "@mui/styled-engine-sc": "^7.0.1",
     "@splidejs/react-splide": "^0.7.12",
     "bootstrap": "^5.3.3",
     "jquery": "^3.7.1",
