@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  --theme-color:#ff651b ;
+  --theme-color:#ff353a ;
   --theme-secondary-color: rgb(44, 128, 255);
+  --light-gray:#e3e3e3;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -20,8 +21,12 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  font-family: "Poppins", serif;
+  font-family: "Roboto Condensed", serif;
 
+}
+
+.text-theme{
+  color: var(--theme-color) !important;
 }
 
 .bg-theme{
@@ -86,7 +91,7 @@ body {
 
 .news-box-label{
   display: inline-block;
-  background: red;
+  background:var(--theme-color);
   color: white;
   padding: 2px 18px;
   text-align: center;
@@ -130,9 +135,64 @@ body {
 .feature-box{
   width: 100%;
   aspect-ratio: 4/4;
-  background: grey;
+  background: var(--light-gray);
   border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
 }
+
+.mobile-wrapper-home{
+  position: relative;
+  width: auto;
+  height: 70vh;
+  margin:auto;
+  aspect-ratio: 8/16;
+  border: 14px solid black;
+  border-radius: 1.5rem;
+  z-index: 5;
+}
+
+.mobile-wrapper-home::before{
+  content: "";
+  height: 8px;
+  width: 8px;
+  position: absolute;
+  top: -11px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 80px;
+  background: #fff;
+  z-index: 6;
+  opacity: 0.6;
+  overflow: hidden;
+}
+
+.mobile-slides{
+  position: absolute;
+  top:0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  border-radius: 0.6rem;
+  overflow: hidden;
+}
+.mobile-slide{
+  height: 100%;
+  width: 100%;
+  background: white;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center ;
+}
+
+
 
 .news-cartd-section{
   height: 100vh;

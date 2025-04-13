@@ -1,3 +1,4 @@
+import SocialBox from "../components/commons/socialBox";
 import ContactForm from "./ContactForm";
 
 
@@ -28,6 +29,7 @@ export default function ContactPage(){
             </div>
             </div>
 
+        <SocialBox title={'Stay Connected!'} content={'Follow us on social media for the latest updates, news, and exclusive content.'}/>
 
     </>)
 

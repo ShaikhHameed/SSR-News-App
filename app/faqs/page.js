@@ -1,6 +1,13 @@
 'use client'
 import Accordion from 'react-bootstrap/Accordion';
+import SocialBox from '../components/commons/socialBox';
 
+const faqsdata = [
+    {'title':'How does Peekshorts summarize news?','content':'lorem ipsum dotemm bottem'},
+    {'title':'Is the news unbiased?','content':'lorem ipsum dotemm bottem'},
+    {'title':'Can I suggest a news source?','content':'lorem ipsum dotemm bottem'},
+    {'title':'Is Peekshorts free?','content':'lorem ipsum dotemm bottem'},
+]
 
 export default function FaqsPage(){
     return(
@@ -16,66 +23,23 @@ export default function FaqsPage(){
                         <h2 className="fs-1">Got Questions?<br/> 
                             <span className="text-danger">We’ve Got Answers.</span>
                         </h2>
+                        <p className='small'>We believe in transparency and keeping things simple. Here are some common questions about Peekshorts:</p>
                     </div>
                     <div className='col-md-6'>
                     <Accordion>
-                            <Accordion.Item eventKey="0">
-                                <Accordion.Header>How does Peekshorts summarize news?</Accordion.Header>
+                        {faqsdata.map((faq,index)=>(
+                            <Accordion.Item eventKey={index} index={index} className='mb-3 rounded-0 border'>
+                                <Accordion.Header >{faq.title}</Accordion.Header>
                                 <Accordion.Body>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                culpa qui officia deserunt mollit anim id est laborum.
+                                {faq.content}
                                 </Accordion.Body>
                             </Accordion.Item>
-
-                            <Accordion.Item eventKey="1">
-                                <Accordion.Header> Is the news unbiased?</Accordion.Header>
-                                <Accordion.Body>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                culpa qui officia deserunt mollit anim id est laborum.
-                                </Accordion.Body>
-                            </Accordion.Item>
-
-                            <Accordion.Item eventKey="1">
-                                <Accordion.Header>Can I suggest a news source?</Accordion.Header>
-                                <Accordion.Body>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                culpa qui officia deserunt mollit anim id est laborum.
-                                </Accordion.Body>
-                            </Accordion.Item>
-
-                            <Accordion.Item eventKey="1">
-                                <Accordion.Header> Is Peekshorts free?</Accordion.Header>
-                                <Accordion.Body>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                culpa qui officia deserunt mollit anim id est laborum.
-                                </Accordion.Body>
-                            </Accordion.Item>
-
-
-                            </Accordion>
+                        ))}
+                    </Accordion>
                     </div>
                 </div>
             </div>
+            <SocialBox/>
         </>
     )
 }
