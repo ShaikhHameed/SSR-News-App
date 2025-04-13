@@ -17,10 +17,10 @@ export default function HomePage() {
                 <img className="w-100" src={'/images/home/60-words.png'} />
                 <p className="text-center my-4">Stay informed with <strong>Quick, Precise,</strong> and <strong>AI-curated</strong> news summaries. Get the essence of global events before diving into details.</p>
                 <div className="row justify-content-center">
-                  <div className="col-md-4">
+                  <div className="col-md-4 col-6">
                     <img className="w-100" src={'/images/icons/google-download.png'} />
                   </div>
-                  <div className="col-md-4">
+                  <div className="col-md-4 col-6">
                     <img className="w-100" src={'/images/icons/apple-download.png'} />
                   </div>
                 </div>
@@ -52,10 +52,10 @@ export default function HomePage() {
           <div className="row justify-content-center">
             <div className="col-md-8">
               <div className="row justify-content-center mt-5">
-                <div className="col-md-4">
+                <div className="col-md-4 col-6">
                   <img className="w-100" src={'/images/icons/google-download.png'} />
                 </div>
-                <div className="col-md-4">
+                <div className="col-md-4 col-6">
                   <img className="w-100" src={'/images/icons/apple-download.png'} />
                 </div>
               </div>

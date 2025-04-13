@@ -16,6 +16,11 @@ export default function HomeSlider(){
             arrows: true,
             pagination: true,
             speed: 1000,
+            breakpoints:{
+                780:{
+                    perPage:1,
+                }
+            }
           }).mount();
     },[])
 

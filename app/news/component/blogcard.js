@@ -14,7 +14,7 @@ export default function BlogCard({provider,title,image,alt,content,link}){
                 <div className="news-card-body">
                         <div className="news-provider">{provider}</div>
                         <h3 className="card-title">{title}</h3>
-                        <div>{content}</div>
+                        <div dangerouslySetInnerHTML={{__html:content}} />
                     
                 </div>
                 </div>

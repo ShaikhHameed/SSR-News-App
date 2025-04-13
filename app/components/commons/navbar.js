@@ -17,10 +17,11 @@ export default function Navbar(){
                 </button>
                 <div className={`collapse navbar-collapse ${show?'show':''}`} id="navbarNavAltMarkup">
                 <div className="navbar-nav ms-auto" onClick={()=>{setShow(false)}}>
-                    {/* <Link className="nav-link text-white active" href={'/news'}>News</Link> */}
-                    <Link className="nav-link " href={'/about'}>About</Link>
-                    <Link className="nav-link " href={'/contact'}>Contact</Link>
-                    <Link className="nav-link " href={'/download'}>Download Now</Link>
+                    <Link className="nav-link" href={'/news'}>News</Link>
+                    <Link className="nav-link" href={'/about'}>About</Link>
+                    <Link className="nav-link" href={'/faqs'}>FAQs</Link>
+                    <Link className="nav-link" href={'/contact'}>Contact</Link>
+                    <Link className="nav-link" href={'/download'}>Download Now</Link>
 
                 </div>
                 </div>
