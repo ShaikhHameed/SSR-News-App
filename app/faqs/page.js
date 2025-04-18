@@ -1,6 +1,7 @@
 'use client'
 import Accordion from 'react-bootstrap/Accordion';
 import SocialBox from '../components/commons/socialBox';
+import HeaderGap from '../components/commons/HeaderGap';
 
 const faqsdata = [
     {'title':'How does Peekshorts summarize news?','content':'lorem ipsum dotemm bottem'},
@@ -12,9 +13,10 @@ const faqsdata = [
 export default function FaqsPage(){
     return(
         <>
-            <div className="container-fluid bg-secondary py-5 text-white d-flex align-items-center" style={{minHeight:"40vh"}}>
+        <HeaderGap/>
+            <div className="container-fluid bg-glazz py-5 text-white d-flex align-items-center" style={{minHeight:"40vh"}}>
                 <div className="container">
-                    <h1 className="fw-bold">FAQs</h1>
+                    <h1 className="fw-bold text-center">FAQs</h1>
                 </div>
             </div>
             <div className="container py-5" >

@@ -1,3 +1,4 @@
+import DownloadAppBox from "./commons/DownloadAppBox";
 import CategorySlider from "./home-components/CategorySlider";
 import HomeFeaturesSection from "./home-components/homeFeaturesSesction";
 import HomeSlider from "./home-components/Homeslider";
@@ -44,7 +45,7 @@ export default function HomePage() {
 
       <HomeFeaturesSection/>
 
-      <div className="py-5 bg-img" style={{ background: "linear-gradient(to left, rgb(0 0 0 / 53%), rgb(0 0 0 / 54%)), url(/images/home/footer-bg.png)" }}>
+      {/* <div className="py-5 bg-img" style={{ background: "linear-gradient(to left, rgb(0 0 0 / 53%), rgb(0 0 0 / 54%)), url(/images/home/footer-bg.png)" }}>
         <div className="container text-center text-white">
           <h4 className="fs-1">Loved It?<br />
             Time to Make It Yours!</h4>
@@ -63,7 +64,10 @@ export default function HomePage() {
           </div>
 
         </div>
-      </div>
+      </div> */}
+
+
+        <DownloadAppBox/>
 
 
     </>

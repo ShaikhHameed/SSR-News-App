@@ -11,7 +11,7 @@ export default function Navbar(){
     <>
         <nav className="navbar navbar-fixed navbar-expand-lg bg-light">
             <div className="container">
-                <Link className="navbar-brand" href={'/'}> <img src="/images/logos/Peekshorts logo.svg" width={'60px'} /> Peek<strong className="text-theme">Shorts</strong></Link>
+                <Link className="navbar-brand" href={'/'}> <img src="/images/logos/Peekshorts logo.svg" width={'60px'} /> peek<strong className="text-theme">shorts</strong></Link>
                 <button className="navbar-toggler" onClick={()=>{setShow(!show)}} type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
                 </button>

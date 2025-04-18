@@ -39,6 +39,9 @@ body {
   background-position: center;
 }
 
+.bg-glazz{
+  background: linear-gradient(295deg, #90bbf3, #cea6fb);
+}
 
 
 .navbar-fixed{
@@ -312,6 +315,19 @@ body {
   padding:.6rem 2rem ;
   text-align: center;
   background: var(--theme-secondary-color);
+}
+
+.footer-theme{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
 }
 
 

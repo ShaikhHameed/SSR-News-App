@@ -3,6 +3,7 @@ import { IoIosFlash } from "react-icons/io";
 import { BsBoxSeam } from "react-icons/bs";
 import { SiTicktick } from "react-icons/si";
 import { FaBraille } from "react-icons/fa";
+import DownloadAppBox from "../components/commons/DownloadAppBox";
 
 
 const options = {
@@ -15,10 +16,10 @@ export default function About(){
         <>
             <div className="container py-5">
                 <div className="row py-5">
-                    <div className="col-md-6">
-                        <img className="w-100 rounded-4" src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?cs=srgb&dl=pexels-fauxels-3183197.jpg&fm=jpg" /> 
+                    <div className="col-md-12">
+                        <img className="w-100 rounded-4 d-block mx-auto" style={{maxWidth:'850px'}} src="https://t4.ftcdn.net/jpg/05/29/21/67/360_F_529216778_0Mnv49gFapviZ1yNHnjORHZGSIbJnrJ3.jpg" /> 
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-12 text-center">
                         <h2 className="fw-semibold fs-1">Revolutionizing News – One Summary at a Time</h2>
                         <p>In an era where information overload is the norm, staying informed shouldn't feel like a chore. At Peekshorts, we believe news should be quick, reliable, and easy to digest. </p>
                         <p>That’s why we’ve built an AI-powered platform that delivers 60-word summaries of the most important stories—so you can stay updated in seconds, not hours.</p>
@@ -62,7 +63,9 @@ export default function About(){
                 </div>
             </div>
 
-        
+
+            <DownloadAppBox/>
+
         </>
     )
 

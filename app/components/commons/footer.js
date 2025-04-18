@@ -3,7 +3,8 @@
 import { useState } from "react";
 
 export default function Footer(){
-    const [hide,setHide]= useState(false);
+    const [hide,setHide]= useState(true);
+    const Year = new Date().getFullYear();
 
 
     return(
@@ -16,6 +17,11 @@ export default function Footer(){
                 {/* <img width={200} src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png"/> */}
             </div> 
             :''}
+
+            <div className="footer-gap" style={{height:'40px'}}></div>
+            <div className="footer-theme">
+                <div className="container"><p className="m-0">© Copyright {Year} | peakshorts</p></div>
+            </div>
         </>
     )
 }
