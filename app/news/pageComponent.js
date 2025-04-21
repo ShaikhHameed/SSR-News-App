@@ -1,20 +1,23 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import '../blogs.scss';
 import BlogCard from './component/blogcard';
-import $ from 'jquery';
-import 'jquery-scrollify';
+import '@splidejs/splide/dist/css/splide.min.css';
+import Splide from '@splidejs/splide';
 import ShimmerNews from './shimmer';
+import { FaAngleUp,FaAngleDown } from "react-icons/fa6";
+
 
 export default function BlogPage() {
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(null); // Store total pages from API
+    const [totalPages, setTotalPages] = useState(null);
     const [isFetching, setIsFetching] = useState(false);
+    const splideRef = useRef(null);
 
     const fetchBlogs = async (currentPage) => {
-        setLoading(true); // Set loading to true when fetching starts
+        setLoading(true);
         const data = { page: currentPage };
         try {
             const response = await fetch('https://sbz.peekshorts.com/api/getnews', {
@@ -25,17 +28,16 @@ export default function BlogPage() {
                 },
             });
             const processBlogs = await response.json();
-            setBlogs((prevBlogs) => [...prevBlogs, ...processBlogs.blogs]); // Append new blogs
+            setBlogs((prev) => [...prev, ...processBlogs.blogs]);
 
-            // Set total pages if provided by API
             if (processBlogs.total_pages) {
                 setTotalPages(processBlogs.total_pages);
             }
         } catch (error) {
             console.error('Error fetching blogs:', error);
         } finally {
-            setLoading(false); // Always set loading to false
-            setIsFetching(false); // Reset fetching flag
+            setLoading(false);
+            setIsFetching(false);
         }
     };
 
@@ -43,67 +45,80 @@ export default function BlogPage() {
         fetchBlogs(page);
     }, [page]);
 
+    // Initialize Splide after blog cards render
     useEffect(() => {
         if (blogs.length > 0) {
-            $.scrollify({
-                section: '.news-cartd-section',
-                sectionName: 'news-cartd-section',
-                easing: 'easeOutExpo',
-                scrollSpeed: 100,
-                setHeights: true,
-                overflowScroll: true,
-                updateHash: false,
-                touchScroll: true,
+            const splide = new Splide('.splide', {
+                direction: 'ttb',
+                height: '100vh',
+                perPage: 1,
+                pagination: false,
+                arrows: false, // Turn off built-in arrows
+                drag: true,
+                keyboard: true,
             });
-        }
-
-        return()=>{
-            $.scrollify.destroy();
+    
+            splide.mount();
+            splideRef.current = splide;
+    
+            // Custom arrow handlers
+            const upArrow = document.querySelector('.arrow-up');
+            const downArrow = document.querySelector('.arrow-down');
+    
+            upArrow?.addEventListener('click', () => splide.go('<'));
+            downArrow?.addEventListener('click', () => splide.go('>'));
+    
+            // Infinite scroll
+            splide.on('move', (newIndex) => {
+                if (
+                    newIndex === blogs.length - 1 &&
+                    !isFetching &&
+                    (totalPages === null || page < totalPages)
+                ) {
+                    setIsFetching(true);
+                    setPage((prevPage) => prevPage + 1);
+                }
+            });
+    
+            return () => {
+                splide.destroy();
+            };
         }
     }, [blogs]);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollTop = window.scrollY;
-            const scrollHeight = document.documentElement.scrollHeight;
-            const clientHeight = document.documentElement.clientHeight;
-
-            // Check if the user has scrolled to 90% of the page
-            if (
-                !isFetching && // Prevent multiple fetches
-                (totalPages === null || page < totalPages) && // Ensure page doesn't exceed total pages
-                scrollTop + clientHeight >= scrollHeight * 0.9
-            ) {
-                setIsFetching(true); // Prevent multiple fetches
-                setPage((prevPage) => prevPage + 1); // Increment page
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll); // Cleanup listener
-    }, [isFetching, page, totalPages]);
-
     return (
         <>
-            {loading && page === 1 ? ( // Show shimmer only for the first page
+            {loading && page === 1 ? (
                 <ShimmerNews />
             ) : (
-                <div className="container">
-                    <div className="mx-auto" style={{ width: '100%', maxWidth: '550px' }}>
-                        {blogs.map((blog, index) => (
-                            <BlogCard
-                                key={index}
-                                image={blog.source_img}
-                                title={blog.title}
-                                alt={blog.title}
-                                content={blog.description}
-                                link={blog.source_link}
-                                provider={blog.source_name}
-                            />
-                        ))}
+                <div className='news-wrapper'>
+                 <div className='arrows-wrapper'>
+                    <div className='arrows arrow-up'><FaAngleUp  size={'1.2rem'}/></div>
+                    <div className='arrows arrow-down'><FaAngleDown  size={'1.2rem'}/></div>
+                 </div>   
+                <div className="splide">
+                    <div className="splide__track" >
+                        <ul className="splide__list">
+                            {blogs.map((blog, index) => (
+                                <li className="splide__slide" key={index} >
+                                    <div className="container mx-auto" style={{ maxWidth: '550px'}}>
+                                        <BlogCard
+                                            image={blog.source_img}
+                                            title={blog.title}
+                                            alt={blog.title}
+                                            content={blog.description}
+                                            link={blog.source_link}
+                                            provider={blog.source_name}
+                                        />
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 </div>
+                </div>
             )}
+
             {loading && page > 1 && <div className="loading-indicator">Loading more blogs...</div>}
             {!loading && totalPages !== null && page >= totalPages && (
                 <div className="end-of-content">You have reached the end of the content.</div>
