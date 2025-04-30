@@ -248,12 +248,13 @@ body {
 
 .news-provider{
   display: inline-block;
-  margin-right: 8px;
-  padding: 4px 14px;
-  background: var(--theme-color);
-  border-radius: 8px;
-  color: white;
-  font-weight: 600;
+    margin-right: 8px;
+    padding: 2px 10px;
+    background: var(--theme-color);
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
 }
 
 .news-wrapper{
@@ -289,13 +290,18 @@ body {
 .news-wrapper .arrows-wrapper .arrows{
   height: 40px;
   width: 40px;
-  background-color: var(--theme-color);
+  background-color: #a9a9a9;
   border-radius: 4rem;
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transition: all 0.5s ease;
+}
+
+.news-wrapper .arrows-wrapper .arrows:hover{
+    background-color: #7d7d7d;
 }
 
 

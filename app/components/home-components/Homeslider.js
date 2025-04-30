@@ -2,10 +2,32 @@
 
 import Splide from '@splidejs/splide';
 import '@splidejs/splide/css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 
 export default function HomeSlider(){
+
+    const[blogs,setBlogs]= useState([]);
+
+    useEffect( ()=>{
+        const getBlogs = async()=>{
+            const data = { page: 1 };
+            try {
+                const response = await fetch('https://sbz.peekshorts.com/api/getnews', {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                const processBlogs = await response.json();
+                setBlogs(processBlogs.blogs);
+            } catch (error) {
+                console.error('Error fetching blogs:', error);
+            } 
+        }
+        getBlogs();
+    },[])
 
     useEffect(()=>{
         new Splide('.splide', {
@@ -22,7 +44,7 @@ export default function HomeSlider(){
                 }
             }
           }).mount();
-    },[])
+    },[blogs])
 
     return(
         <>      <h2 className='fs-1 text-center fw-semibold  position-relative'>Featured Stories</h2>
@@ -30,17 +52,17 @@ export default function HomeSlider(){
                 <div className="splide">
                 <div className="splide__track">
                     <div className="splide__list">
-                    
-                        <div className='splide__slide' style={{padding:'6px'}}> 
-                        <article className=" news-home-box" style={{ background: 'linear-gradient(to bottom,#00000063,#00000063), url(https://wallpapers.com/images/featured/american-flag-f4iyiwmqk6cuqimy.jpg)' }}>
+                        {blogs && blogs.map((blog,index)=>(
+                        <div className='splide__slide' key={index} style={{padding:'6px'}}> 
+                        <article className=" news-home-box" style={{ background: `linear-gradient(to bottom,#00000063,#00000063), url(${blog.source_img? blog.source_img:'/images/logos/img-404-news.png'})` }}>
                             <div className="news-box position-relative">
-                            <div className='news-box-label'><span>Currently Trending</span></div>    
-                            <h3>Donald Trump's shrill narrative costs US Canadian tourism dollars; travel bookings plummet</h3>
-                            <h6 style={{opacity:'0.8'}}>Source: NewYork Times</h6>
+                            <div className='news-box-label'><span>Latest Stories</span></div>    
+                            <h3>{blog.title}</h3>
+                            <h6 style={{opacity:'0.8'}}>Source: {blog.source_name}</h6>
                             </div>
                         </article>
                         </div>    
-                       
+                        ))}
                     </div>
                 </div>
                 </div>

@@ -14,9 +14,9 @@ export default function DownloadAppBox(){
                 <div className="col-md-4 col-6">
                   <img className="w-100" src={'/images/icons/google-download.png'} />
                 </div>
-                <div className="col-md-4 col-6">
+                {/* <div className="col-md-4 col-6">
                   <img className="w-100" src={'/images/icons/apple-download.png'} />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

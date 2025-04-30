@@ -8,12 +8,14 @@ export default function BlogCard({provider,title,image,alt,content,link}){
         <div className="news-cartd-section">
             <div className="news-card w-100 my-4" >
                 <div>
-                <div  className="news-card-img blur-section" style={{background:'#ff9b9b'}}s>
+                <div  className="news-card-img blur-section" style={{background:'#ff9b9b'}}>
+                    {image?
                     <img className="card-img-news" src={image}  alt={alt}/>
+                    :<img className="card-img-news" src={'/images/logos/img-404-news.png'}  alt={alt}/>}    
                 </div>
                 <div className="news-card-body">
                         <div className="news-provider">{provider}</div>
-                        <h3 className="card-title">{title}</h3>
+                        <h3 className="card-title" >{title}</h3>
                         <div className="content-news-elm" dangerouslySetInnerHTML={{__html:content}} />
                     
                 </div>
