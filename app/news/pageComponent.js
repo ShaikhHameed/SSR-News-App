@@ -5,8 +5,7 @@ import BlogCard from './component/blogcard';
 import '@splidejs/splide/dist/css/splide.min.css';
 import Splide from '@splidejs/splide';
 import ShimmerNews from './shimmer';
-import { FaAngleUp,FaAngleDown } from "react-icons/fa6";
-
+import { FaAngleUp, FaAngleDown } from "react-icons/fa6";
 
 export default function BlogPage() {
     const [blogs, setBlogs] = useState([]);
@@ -45,7 +44,6 @@ export default function BlogPage() {
         fetchBlogs(page);
     }, [page]);
 
-    // Initialize Splide after blog cards render
     useEffect(() => {
         if (blogs.length > 0) {
             const splide = new Splide('.splide', {
@@ -53,22 +51,22 @@ export default function BlogPage() {
                 height: '100vh',
                 perPage: 1,
                 pagination: false,
-                arrows: false, // Turn off built-in arrows
+                arrows: false,
                 drag: true,
                 keyboard: true,
             });
-    
+
             splide.mount();
             splideRef.current = splide;
-    
-            // Custom arrow handlers
+
+            // Handle custom arrows
             const upArrow = document.querySelector('.arrow-up');
             const downArrow = document.querySelector('.arrow-down');
-    
+
             upArrow?.addEventListener('click', () => splide.go('<'));
             downArrow?.addEventListener('click', () => splide.go('>'));
-    
-            // Infinite scroll
+
+            // Infinite scroll when reaching last slide
             splide.on('move', (newIndex) => {
                 if (
                     newIndex === blogs.length - 1 &&
@@ -79,7 +77,7 @@ export default function BlogPage() {
                     setPage((prevPage) => prevPage + 1);
                 }
             });
-    
+
             return () => {
                 splide.destroy();
             };
@@ -91,31 +89,31 @@ export default function BlogPage() {
             {loading && page === 1 ? (
                 <ShimmerNews />
             ) : (
-                <div className='news-wrapper'>
-                 <div className='arrows-wrapper'>
-                    <div className='arrows arrow-up'><FaAngleUp  size={'1.2rem'}/></div>
-                    <div className='arrows arrow-down'><FaAngleDown  size={'1.2rem'}/></div>
-                 </div>   
-                <div className="splide">
-                    <div className="splide__track" >
-                        <ul className="splide__list">
-                            {blogs.map((blog, index) => (
-                                <li className="splide__slide" key={index} >
-                                    <div className="container mx-auto" style={{ maxWidth: '550px'}}>
-                                        <BlogCard
-                                            image={blog.source_img}
-                                            title={blog.title}
-                                            alt={blog.title}
-                                            content={blog.description}
-                                            link={blog.source_link}
-                                            provider={blog.source_name}
-                                        />
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
+                <div className="news-wrapper">
+                    <div className="arrows-wrapper">
+                        <div className="arrows arrow-up"><FaAngleUp size={'1.2rem'} /></div>
+                        <div className="arrows arrow-down"><FaAngleDown size={'1.2rem'} /></div>
                     </div>
-                </div>
+                    <div className="splide">
+                        <div className="splide__track">
+                            <ul className="splide__list">
+                                {blogs.map((blog, index) => (
+                                    <li className="splide__slide" key={index}>
+                                        <div className="container mx-auto" style={{ maxWidth: '550px' }}>
+                                            <BlogCard
+                                                image={blog.source_img}
+                                                title={blog.title}
+                                                alt={blog.title}
+                                                content={blog.description}
+                                                link={blog.source_link}
+                                                provider={blog.source_name}
+                                            />
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             )}
 
