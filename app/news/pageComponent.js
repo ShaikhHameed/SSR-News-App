@@ -46,6 +46,12 @@ export default function BlogPage() {
 
     useEffect(() => {
         if (blogs.length > 0) {
+            // Save current index before destroying the old instance
+            const currentIndex = splideRef.current?.index || 0;
+
+            // Destroy previous instance if it exists
+            splideRef.current?.destroy();
+
             const splide = new Splide('.splide', {
                 direction: 'ttb',
                 height: '100vh',
@@ -57,9 +63,13 @@ export default function BlogPage() {
             });
 
             splide.mount();
+
+            // Move back to previously active index
+            splide.go(currentIndex);
+
             splideRef.current = splide;
 
-            // Handle custom arrows
+            // Custom arrows
             const upArrow = document.querySelector('.arrow-up');
             const downArrow = document.querySelector('.arrow-down');
 
@@ -91,8 +101,12 @@ export default function BlogPage() {
             ) : (
                 <div className="news-wrapper">
                     <div className="arrows-wrapper">
-                        <div className="arrows arrow-up"><FaAngleUp size={'1.2rem'} /></div>
-                        <div className="arrows arrow-down"><FaAngleDown size={'1.2rem'} /></div>
+                        <div className="arrows arrow-up">
+                            <FaAngleUp size={'1.2rem'} />
+                        </div>
+                        <div className="arrows arrow-down">
+                            <FaAngleDown size={'1.2rem'} />
+                        </div>
                     </div>
                     <div className="splide">
                         <div className="splide__track">
@@ -117,7 +131,10 @@ export default function BlogPage() {
                 </div>
             )}
 
-            {loading && page > 1 && <div className="loading-indicator">Loading more blogs...</div>}
+            {loading && page > 1 && (
+                <div className="loading-indicator">Loading more blogs...</div>
+            )}
+
             {!loading && totalPages !== null && page >= totalPages && (
                 <div className="end-of-content">You have reached the end of the content.</div>
             )}
